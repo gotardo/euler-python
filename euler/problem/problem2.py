@@ -8,14 +8,16 @@ class Problem2:
     https://projecteuler.net/problem=2
     """
     def solution(self):
-        print (self.fibo(10))
+        return sum([x for x in self.fibo(4000000) if not x % 2])
 
-    def fibo(self, x):
-        if x < 1:
-            return 0
-        if x == 1:
-            return 1
-        return self.fibo(x - 1)  + self.fibo(x - 2)
+    def fibo(self, limit):
+        a,b = 1,2
+        yield a
+        yield b
+        while b <= limit:
+            a, b = b, a + b
+            yield b
 
     def isOK(self):
-        return False
+        '''Test that solution returns the valid value'''
+        return self.solution() == 4613732

@@ -12,5 +12,5 @@ class Problem1:
         return [x for x in range(0, 1000) if not x % 3 or not x %5]
 
     def isOK(self):
-        '''Check that solution returns the valid value'''
+        '''Test that solution returns the valid value'''
         return self.solution() == 233168;
